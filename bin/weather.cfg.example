@@ -1,0 +1,4 @@
+# Secret API key
+OPENWEATHER_API_KEY="xxx"
+# City id fhttp://openweathermap.org/find
+OPENWEATHER_CITY_ID="3081368"

@@ -1,0 +1,62 @@
+#!/bin/bash
+# Based on http://openweathermap.org/current
+
+function parse {
+  VALUE=`node -pe "JSON.parse(process.argv[1]).${2}" "${1}"`
+  echo $VALUE ;
+}
+
+# icons from icons-in-terminal
+. $HOME/.local/share/icons-in-terminal/icons_bash.sh
+
+# Get API key and city id from cfg file
+. $HOME/bin/weather.cfg
+api_key="${OPENWEATHER_API_KEY}"
+city_id="${OPENWEATHER_CITY_ID}"
+
+urgent_low=0
+urgent_high=30
+
+icon_sun=`echo -e $fa_sun_o`
+icon_cloud=`echo -e $fa_cloud`
+icon_rain=`echo -e $fa_umbrella`
+icon_storm=`echo -e $fa_bolt`
+icon_snow=`echo -e $fa_snowflake_o`
+icon_fog=`echo -e $fa_align_justify`
+icon_night=`echo -e $fa_moon_o`
+icon_celsius=`echo -e $weather_degrees`"C"
+
+weather_url="http://api.openweathermap.org/data/2.5/weather?id=${city_id}&appid=${api_key}&units=metric"
+
+data=$(wget -qO- "${weather_url}")
+weather_main=`parse "${data}" weather[0].main`
+weather_code=`parse "${data}" weather[0].id`
+temp_float=`parse "${data}" main.temp`
+temp=`echo $temp_float | awk '{print int($1+0.5)}'`
+weather_icon=`parse "${data}" weather[0].icon`
+
+case ${weather_code} in
+  6*) # snow
+    icon=${icon_snow} ;;
+  3*|5*) # rain, drizzle
+    icon=${icon_rain} ;;
+  800*) # clear
+    case ${weather_icon} in
+      01n) # night
+        icon=${icon_night} ;;
+      *) # day
+        icon=${icon_sun} ;;
+    esac ;; 
+  80*) # cloudy
+    icon=${icon_cloud} ;;
+  7*) # fog
+    icon=${icon_fog} ;;
+  2*) # storm
+    icon=${icon_storm} ;;
+  9*) # extreme
+    icon=${weather_main} ;;
+  *) # probably no internet
+    icon="?" 
+esac
+
+echo " [${icon} ${temp}${icon_celsius}]"
