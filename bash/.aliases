@@ -32,8 +32,9 @@ alias l="exa -la"
 
 # cd
 alias clr="clear"
-alias cdd="cd ~/Projects/dotfiles/ && l"
-alias cdp="cd ~/Projects/ && l"
+alias cdp="cd $HOME/Projects/ && l"
+alias cdk="cd $HOME/Projects/kodo"
+alias cdd="cd $HOME/Projects/dwm"
 
 function cl () {
   cd "$@" && l
