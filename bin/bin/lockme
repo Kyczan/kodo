@@ -1,7 +1,5 @@
 #!/bin/bash
 
-. $HOME/.config/i3/scripts/get-color
-
 B='#00000000'  # blank
 VI=$(get-color ylw)'22'  # veryfying inside
 WI=$(get-color red)'22'  # wrong inside

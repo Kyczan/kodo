@@ -22,7 +22,7 @@ compton -f &
 xss-lock -- lockme &
 
 # kill status-bar and restart it
-reset-dwm-status-bar
+restart-dwm-status-bar
 
 # finally run X
 # exec i3

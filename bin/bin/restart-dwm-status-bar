@@ -2,4 +2,5 @@
 
 # kill status-bar and restart it
 for pid in $(ps -ef | grep "set-dwm-status-bar" | awk '{print $2}'); do kill -9 $pid; done &
+sleep 1
 set-dwm-status-bar
