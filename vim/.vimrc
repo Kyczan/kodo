@@ -1,9 +1,5 @@
 let mapleader=","       " leader is comma
 
-" enable pathogen
-call pathogen#infect()
-call pathogen#helptags()
-
 set background=dark
 syntax on
 color dracula
@@ -26,13 +22,3 @@ set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
 " turn off search highlight
 nnoremap <leader><space> :nohlsearch<CR>
-
-" ctrlP
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-let g:ctrlp_match_window = 'bottom,order:ttb'
-let g:ctrlp_switch_buffer = 0
-let g:ctrlp_working_path_mode = 0
-
-" NERDTree
-map <C-n> :NERDTreeToggle<CR>
-
