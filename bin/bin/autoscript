@@ -17,5 +17,3 @@ else
   chmod +x $SCRIPT_FILE
   $MY_EDITOR $SCRIPT_FILE
 fi
-
-c

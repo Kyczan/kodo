@@ -15,5 +15,8 @@ Be sure to install `stow`. More information about program can be found [here](ht
 Then execute commands from `kodo` directory.
 
 ```sh
-stow --target=/home/kowal bin
+stow --target=$HOME bash
+stow --target=$HOME bin
+stow --target=$HOME vim
+stow --target=$HOME x
 ```
