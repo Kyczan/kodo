@@ -28,12 +28,12 @@ function get_vol() {
 }
 
 function get_date_time() {
-	echo " [$icon_date $(date '+%a %Y-%m-%d')] [$icon_time$(date +%H:%M)] "
+	echo " [$icon_date $(date '+%a %Y-%m-%d')] [$icon_time $(date +%H:%M)] "
 }
 
 function get_updates() {
 	updates_count=$(/usr/bin/checkupdates | wc -l)
-	echo $([ $updates_count -gt 0 ] && echo " [$icon_updates$updates_count]" || echo "")
+	echo $([ $updates_count -gt 0 ] && echo " [$icon_updates $updates_count]" || echo "")
 }
 
 TEMP=$(get_temp)
