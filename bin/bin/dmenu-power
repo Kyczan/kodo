@@ -1,15 +1,18 @@
 #!/bin/bash
 
-opts=$(echo -e "lock\nrestart dwm statusbar\nsuspend\nreboot\nshutdown" | rofi -dmenu -p "Power manager")
+options_arr=("lock" "restart dwm statusbar" "suspend" "reboot" "shutdown")
+joined=$(IFS=$'\n' ; echo "${options_arr[*]}")
+echo $joined
+opts=$(echo -e "$joined" | rofi -dmenu -p "Power manager")
 
-if [[ "${opts}" == "lock" ]]; then
+if [[ "${opts}" == ${options_arr[0]} ]]; then
   lockme
-elif [[ "${opts}" == "restart dwm statusbar" ]]; then
+elif [[ "${opts}" == ${options_arr[1]} ]]; then
   restart-dwm-status-bar
-elif [[ "${opts}" == "suspend" ]]; then
+elif [[ "${opts}" == ${options_arr[2]} ]]; then
   lockme & systemctl suspend
-elif [[ "${opts}" == "reboot" ]]; then
+elif [[ "${opts}" == ${options_arr[3]} ]]; then
   systemctl reboot
-elif [[ "${opts}" == "shutdown" ]]; then
+elif [[ "${opts}" == ${options_arr[4]} ]]; then
   systemctl poweroff -i
 fi
