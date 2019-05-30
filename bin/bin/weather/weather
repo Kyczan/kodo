@@ -10,12 +10,9 @@ function parse {
 . $HOME/.local/share/icons-in-terminal/icons_bash.sh
 
 # Get API key and city id from cfg file
-. $HOME/bin/weather.cfg
+. $HOME/bin/weather/weather.cfg
 api_key="${OPENWEATHER_API_KEY}"
 city_id="${OPENWEATHER_CITY_ID}"
-
-urgent_low=0
-urgent_high=30
 
 icon_sun=`echo -e $fa_sun_o`
 icon_cloud=`echo -e $fa_cloud`
@@ -25,6 +22,8 @@ icon_snow=`echo -e $fa_snowflake_o`
 icon_fog=`echo -e $fa_align_justify`
 icon_night=`echo -e $fa_moon_o`
 icon_celsius=`echo -e $weather_degrees`"C"
+
+icon_base=$HOME/.config/dunst/icons/weather-
 
 weather_url="http://api.openweathermap.org/data/2.5/weather?id=${city_id}&appid=${api_key}&units=metric"
 
@@ -37,26 +36,33 @@ weather_icon=`parse "${data}" weather[0].icon`
 
 case ${weather_code} in
   6*) # snow
-    icon=${icon_snow} ;;
+    icon=${icon_snow} 
+    color_icon=${icon_base}snow.png ;; 
   3*|5*) # rain, drizzle
-    icon=${icon_rain} ;;
+    icon=${icon_rain} 
+    color_icon=${icon_base}rain.png ;; 
   800*) # clear
     case ${weather_icon} in
       01n) # night
-        icon=${icon_night} ;;
+        icon=${icon_night} 
+        color_icon=${icon_base}moon.png ;; 
       *) # day
-        icon=${icon_sun} ;;
+        icon=${icon_sun} 
+        color_icon=${icon_base}sun.png ;; 
     esac ;; 
   80*) # cloudy
-    icon=${icon_cloud} ;;
+    icon=${icon_cloud} 
+    color_icon=${icon_base}cloud.png ;; 
   7*) # fog
-    icon=${icon_fog} ;;
+    icon=${icon_fog} 
+    color_icon=${icon_base}cloud.png ;; 
   2*) # storm
-    icon=${icon_storm} ;;
+    icon=${icon_storm} 
+    color_icon=${icon_base}rain.png ;; 
   9*) # extreme
-    icon=${weather_main} ;;
+    icon=${weather_main} 
+    color_icon=${icon_base}alert.png ;; 
   *) # probably no internet
     icon="?" 
+    color_icon=${icon_base}alert.png 
 esac
-
-echo " [${icon} ${temp}${icon_celsius}]"

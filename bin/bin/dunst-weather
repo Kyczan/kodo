@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# get weather data
+. $HOME/bin/weather/weather
+
+glyph_temp=`echo -e $fa_thermometer`
+glyph_cloud=`echo -e $fa_cloud`
+glyph_humidity=`echo -e $weather_humidity`
+glyph_pressure=`echo -e $weather_barometer`
+glyph_wind=`echo -e $weather_strong_wind`
+glyph_sunrise=`echo -e $weather_sunrise`
+glyph_sunset=`echo -e $weather_sunset`
+glyph_daytime=`echo -e $md_timelapse`
+
+description=`parse "${data}" weather[0].description`
+clouds=`parse "${data}" clouds.all`
+humidity=`parse "${data}" main.humidity`
+pressure=`parse "${data}" main.pressure`
+city=`parse "${data}" name`
+windms=`parse "${data}" wind.speed`
+wind=$(echo "scale=1; $windms*3.6" | bc )
+sunrise=`parse "${data}" sys.sunrise`
+sunset=`parse "${data}" sys.sunset`
+daytime=$(($sunset-$sunrise))
+
+notify_info="$city: $description
+$glyph_temp   $temp$celsius
+$glyph_cloud  $clouds%
+$glyph_humidity   $humidity%
+$glyph_pressure   ${pressure}hPa
+$glyph_wind  ${wind}km/h
+$glyph_sunrise  $(date '+%H:%M' --date=@${sunrise})
+$glyph_sunset  $(date '+%H:%M' --date=@${sunset})
+$glyph_daytime   $(date '+%H:%M' --date=@${daytime} -u)"
+  
+notify-send "$weather_main" "$notify_info" -i $color_icon

@@ -1,11 +1,9 @@
 #!/bin/bash
 
-opts=$(echo -e "lock\nrestart dwm\nrestart dwm statusbar\nsuspend\nreboot\nshutdown" | rofi -dmenu -p "Power manager")
+opts=$(echo -e "lock\nrestart dwm statusbar\nsuspend\nreboot\nshutdown" | rofi -dmenu -p "Power manager")
 
 if [[ "${opts}" == "lock" ]]; then
   lockme
-elif [[ "${opts}" == "restart dwm" ]]; then
-  kill-dwm
 elif [[ "${opts}" == "restart dwm statusbar" ]]; then
   restart-dwm-status-bar
 elif [[ "${opts}" == "suspend" ]]; then

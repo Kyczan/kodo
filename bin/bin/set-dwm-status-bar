@@ -1,12 +1,16 @@
 #!/bin/bash
 
+# load scripts
+scripts=$HOME/bin/dwm-status-bar
+get_battery=$scripts/get-battery
+get_volume=$scripts/get-volume
+get_weather=$scripts/get-weather
+
 # load icons from icons-in-terminal
 . $HOME/.local/share/icons-in-terminal/icons_bash.sh
 
 icon_temp=`echo -e $oct_flame`
 icon_celsius=`echo -e $weather_degrees`"C"
-icon_bat=`echo -e $fa_bolt`
-icon_vol=`echo -e $md_volume_up`
 icon_date=`echo -e $fa_calendar_o`
 icon_time=`echo -e $md_access_time`
 icon_updates=`echo -e $fa_arrow_circle_up`
@@ -16,15 +20,7 @@ COUNTER2=0
 COUNTER3=0
 
 function get_temp() {
-	echo "[$icon_temp$(($(cat /sys/class/thermal/thermal_zone0/temp) / 1000))$icon_celsius]"
-}
-
-function get_bat() {
-	echo " [$icon_bat$(acpi -b | awk '{ print $4 }' | tr -d ',')]"
-}
-
-function get_vol() {
-	echo " [$icon_vol$(amixer get Master | tail -1 | sed 's/.*\[\([0-9]*%\)\].*/\1/')]"
+	echo "[$icon_temp $(($(cat /sys/class/thermal/thermal_zone0/temp) / 1000))$icon_celsius]"
 }
 
 function get_date_time() {
@@ -37,9 +33,9 @@ function get_updates() {
 }
 
 TEMP=$(get_temp)
-BAT=$(get_bat)
-VOL=$(get_vol)
-WEATHER=$(get-weather)
+BAT=$($get_battery)
+VOL=$($get_volume)
+WEATHER=$($get_weather)
 DATE=$(get_date_time)
 UPDATES=$(get_updates)
 
@@ -51,7 +47,7 @@ do
 	# update only every 5m
 	if [[ "${COUNTER1}" -eq 300 ]]; then
 		COUNTER1=0
-		WEATHER=$(get-weather)
+		WEATHER=$($get_weather)
 	fi;
 
 	# update only every 1m
@@ -64,11 +60,11 @@ do
 	if [[ "${COUNTER3}" -eq 20 ]]; then
 		COUNTER3=0
 		TEMP=$(get_temp)
-		BAT=$(get_bat)
+		BAT=$($get_battery)
 	fi;
 	
 	# update every 1s
-	VOL=$(get_vol)
+	VOL=$($get_volume)
 	DATE=$(get_date_time)
 	
     xsetroot -name "$TEMP$BAT$VOL$WEATHER$DATE$UPDATES"

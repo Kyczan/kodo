@@ -17,6 +17,7 @@ Then execute commands from `kodo` directory.
 ```sh
 stow --target=$HOME bash
 stow --target=$HOME bin
+stow --target=$HOME dunst
 stow --target=$HOME vim
 stow --target=$HOME x
 ```
