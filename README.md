@@ -21,3 +21,17 @@ stow --target=$HOME dunst
 stow --target=$HOME vim
 stow --target=$HOME x
 ```
+
+This project should be used alonside with my [fork of dwm](https://github.com/Kyczan/dwm)
+
+## Content
+
+### bash
+
+### bin
+
+### dunst
+
+### vim
+
+### x
