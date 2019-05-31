@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# icons from icons-in-terminal
+. $HOME/.local/share/icons-in-terminal/icons_bash.sh
+icon_temp=`echo -e $oct_flame`
+icon_celsius=`echo -e $weather_degrees`"C"
+
+echo "[$icon_temp $(($(cat /sys/class/thermal/thermal_zone0/temp) / 1000))$icon_celsius]"

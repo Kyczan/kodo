@@ -2,44 +2,30 @@
 
 # load scripts
 scripts=$HOME/bin/dwm-status-bar
+get_temperature=$scripts/get-temperature
 get_battery=$scripts/get-battery
 get_volume=$scripts/get-volume
 get_weather=$scripts/get-weather
+get_date_time=$scripts/get-date-time
+get_updates=$scripts/get-updates
 
-# load icons from icons-in-terminal
-. $HOME/.local/share/icons-in-terminal/icons_bash.sh
-
-icon_temp=`echo -e $oct_flame`
-icon_celsius=`echo -e $weather_degrees`"C"
-icon_date=`echo -e $fa_calendar_o`
-icon_time=`echo -e $md_access_time`
-icon_updates=`echo -e $fa_arrow_circle_up`
-
+# initialize counters
 COUNTER1=0
 COUNTER2=0
 COUNTER3=0
 
-function get_temp() {
-	echo "[$icon_temp $(($(cat /sys/class/thermal/thermal_zone0/temp) / 1000))$icon_celsius]"
+function set_bar() {
+	xsetroot -name "$TEMP$BAT$VOL$WEATHER$DATE$UPDATES"
 }
 
-function get_date_time() {
-	echo " [$icon_date $(date '+%a %Y-%m-%d')] [$icon_time $(date +%H:%M)] "
-}
-
-function get_updates() {
-	updates_count=$(/usr/bin/checkupdates | wc -l)
-	echo $([ $updates_count -gt 0 ] && echo " [$icon_updates $updates_count]" || echo "")
-}
-
-TEMP=$(get_temp)
+TEMP=$($get_temperature)
 BAT=$($get_battery)
 VOL=$($get_volume)
 WEATHER=$($get_weather)
-DATE=$(get_date_time)
-UPDATES=$(get_updates)
+DATE=$($get_date_time)
+UPDATES=$($get_updates)
 
-xsetroot -name "$TEMP$BAT$VOL$WEATHER$DATE$UPDATES"
+set_bar
 
 while true
 do
@@ -53,21 +39,21 @@ do
 	# update only every 1m
 	if [[ "${COUNTER2}" -eq 60 ]]; then
 		COUNTER2=0
-		UPDATES=$(get_updates)
+		UPDATES=$($get_updates)
 	fi;
 
 	# update only every 20s
 	if [[ "${COUNTER3}" -eq 20 ]]; then
 		COUNTER3=0
-		TEMP=$(get_temp)
+		TEMP=$($get_temperature)
 		BAT=$($get_battery)
 	fi;
 	
 	# update every 1s
 	VOL=$($get_volume)
-	DATE=$(get_date_time)
+	DATE=$($get_date_time)
 	
-    xsetroot -name "$TEMP$BAT$VOL$WEATHER$DATE$UPDATES"
+    set_bar
 
 	# increment counters
 	COUNTER1=$((COUNTER1+1))
