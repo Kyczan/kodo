@@ -7,7 +7,7 @@ rofi.color-enabled:     true
 rofi.color-window:      #dd282A36,  blu2,     blu2
 
 !                       bg          fg        bg-alt      hl-bg       hl-fg
-rofi.color-normal:      #00000000,  fg,       #00000000,  blu,        blk
+rofi.color-normal:      #00000000,  blk2,     #00000000,  mag,        blk
 rofi.color-active:      grn,        blk,      grn,        grn,        blk2
 rofi.color-urgent:      red,        fg,       red,        red,        wht
 
