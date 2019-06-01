@@ -1,0 +1,57 @@
+/* ----------------------------------- */
+/* ----------- tab bar --------------- */
+/* ----------------------------------- */
+
+/* tab bar height */
+#header > #tabs-container.top {
+  padding-top: 0;
+}
+
+/* min, max, close */
+#titlebar > .window-buttongroup {
+  display: none;
+}
+
+#header > #tabs-container.top {
+  padding-right: 0;
+}
+
+/**[Auto hide address bar]**/
+
+.toolbar-addressbar {
+  height: 0;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  opacity: 0;
+  z-index: 2;
+  transition: height 0ms 400ms, opacity 400ms 0ms;
+}
+
+/**[Reveal on hover]**/
+
+#header:hover ~ #main .toolbar-addressbar,
+.toolbar-addressbar:hover {
+  height: auto;
+  opacity: 1;
+  transition: height 0ms 0ms, opacity 600ms 0ms;
+}
+
+/* ----------------------------------- */
+/* ---------- speed dial ------------- */
+/* ----------------------------------- */
+
+/* hide search bar */
+.iconmenu-container.searchfield {
+  display: none;
+}
+
+/* ----------------------------------- */
+/* -------- buttons & icons ---------- */
+/* ----------------------------------- */
+
+/* burger menu */
+.vivaldi {
+  height: 30px;
+  padding: 4px 0 0;
+}

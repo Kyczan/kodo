@@ -22,7 +22,9 @@ stow --target=$HOME vim
 stow --target=$HOME x
 ```
 
-This project should be used alonside with my [fork of dwm](https://github.com/Kyczan/dwm)
+This project should be used alonside with my [fork of dwm](https://github.com/Kyczan/dwm) and [fork of st terminal](https://github.com/Kyczan/st)
+
+Also you can use `install.sh` script located in root of this directory. It installs some programs needed by KODO. But use it with care.
 
 ## Content
 
@@ -32,7 +34,7 @@ This project should be used alonside with my [fork of dwm](https://github.com/Ky
 - `.bash_profile` - runs once on logon.
 - `.bashrc` - runs every time when bash starts (new terminal window is spawn). Loads aliases and creates custom prompt line:
 
-![prompt](./.setup/scrots/prompt.png)
+![prompt](./scrots/prompt.png)
 
 - `.inputrc` - this file defines how bash should work. Instead of using Emacs shortcuts it uses vim keys to navigate through bash prompt. Default there is enabled `insert` mode. To switch to `command` mode use `Esc` key. To distinguish modes there are two types of cursor. For `insert` mode bar/pipe `|` and for `command` mode block `█`. For reference see this [article](http://vim.wikia.com/wiki/Use_vi_shortcuts_in_terminal).
 
