@@ -1,0 +1,3 @@
+#!/bin/bash
+
+markdown-pdf -f A4 -s $HOME/bin/markdown/github.css $1
