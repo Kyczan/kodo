@@ -1,3 +1,4 @@
 #!/bin/bash
 
-markdown-pdf -f A4 -s $HOME/bin/markdown/github.css $1
+# converts md to pdf with github flavour of css
+markdown-pdf -f A4 -s $HOME/bin/markdown/github-mod.css $1
