@@ -63,10 +63,10 @@
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 2
+    frame_width = 1
 
     # Defines color of the frame around the notification window.
-    frame_color = "#BD93F9"
+    frame_color = "#FF79C6"
 
     # Define a color for the separator.
     # possible values are:
@@ -184,7 +184,7 @@
     dmenu = /usr/bin/dmenu -p dunst:
 
     # Browser for opening urls in context menu.
-    browser = /usr/bin/chromium
+    browser = vivaldi-stable
 
     # Always run rule-defined scripts, even if the notification is suppressed
     always_run_script = true
@@ -247,8 +247,8 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#4D4D4D"
-    foreground = "#BFBFBF"
+    background = "#282A36"
+    foreground = "#696969"
     timeout = 10
     # Icon for notifications with low urgency, uncomment to enable
     #icon = /path/to/icon
@@ -256,8 +256,8 @@
 [urgency_normal]
     # background = "#282A36"
     # foreground = "#8BE9FD"
-    background = "#4D4D4D"
-    foreground = "#BFBFBF"
+    background = "#282A36"
+    foreground = "#696969"
     timeout = 10
     # Icon for notifications with normal urgency, uncomment to enable
     #icon = /path/to/icon
