@@ -2,10 +2,10 @@
 
 # Profile file. Runs on login.
 
-export PATH="$HOME/bin:$PATH:$(ruby -e 'print Gem.user_dir')/bin"
+export PATH="$HOME/bin:$PATH"
 export XDG_CONFIG_HOME="$HOME/.config"
 # My variables
-export MY_EDITOR="vscodium"
+export MY_EDITOR="code-oss"
 export VISUAL="vim"
 export SUDO_ASKPASS=~/bin/password
 
@@ -13,5 +13,5 @@ export SUDO_ASKPASS=~/bin/password
 
 # Start graphical server if i3 not already running.
 if [ "$(tty)" = "/dev/tty1" ]; then
-	pgrep -x i3 || exec startx
+	pgrep -x dwm || exec startx
 fi

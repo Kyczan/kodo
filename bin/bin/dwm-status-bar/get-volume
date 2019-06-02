@@ -5,9 +5,9 @@
 icon_sound=`echo -e $md_volume_up`
 icon_mute=`echo -e $oct_mute`
 
-statusLine=$(amixer get Master | tail -n 1)
+statusLine=$(amixer -c 1 get Master | tail -n 1)
 status=$(echo "${statusLine}" | grep -wo "on")
-volume=$(echo "${statusLine}" | awk -F ' ' '{print $5}' | tr -d '[]%')
+volume=$(echo "${statusLine}" | awk -F ' ' '{print $4}' | tr -d '[]%')
 label="${icon_sound} ${volume}%"
 
 if [[ "${status}" == "on" ]]; then

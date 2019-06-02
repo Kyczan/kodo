@@ -19,11 +19,11 @@ dunst -config ~/.config/dunst/dunstrc &
 compton -f &
 
 # lock screen on suspend
-xss-lock -- lockme &
+#xss-lock -- lockme &
 
 # kill status-bar and restart it
 restart-dwm-status-bar
 
 # finally run X
-# exec i3
 exec dwm
+

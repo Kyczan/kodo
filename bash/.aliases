@@ -27,7 +27,13 @@ function gacmp () {
   gs
 }
 
-#ls
+# xbps
+alias xi="sudo -A xbps-install -S"
+alias xu="sudo -A xbps-install -Su"
+alias xq="xbps-query -Rs"
+alias xr="sudo -A xbps-remove -R"
+
+# ls
 alias l="exa -la"
 
 # cd
