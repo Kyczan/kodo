@@ -32,7 +32,7 @@ if [[ "${battery_state}" = "Charging" || "${battery_state}" = "Full" ]]; then
 		fi
 	fi
 
-	echo " [${label} $glyph_plug]"
+	echo "   ${label} $glyph_plug"
 fi
 
 if [[ "${battery_state}" = "Discharging" ]]; then
@@ -41,7 +41,7 @@ if [[ "${battery_state}" = "Discharging" ]]; then
 		rm $cache_full
 	fi
 
-	echo " [${label}]"
+	echo "   ${label}"
 
   if [[ "${battery_power}" -lt "30" ]]; then 
 		

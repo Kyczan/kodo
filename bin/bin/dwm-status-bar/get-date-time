@@ -5,4 +5,4 @@
 icon_date=`echo -e $fa_calendar_o`
 icon_time=`echo -e $md_access_time`
 
-echo " [$icon_date $(date '+%a %Y-%m-%d')] [$icon_time $(date +%H:%M)] "
+echo "   $icon_date $(date '+%a %Y-%m-%d')   $icon_time $(date +%H:%M)   "

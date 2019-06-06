@@ -11,7 +11,7 @@ volume=$(echo "${statusLine}" | awk -F ' ' '{print $4}' | tr -d '[]%')
 label="${icon_sound} ${volume}%"
 
 if [[ "${status}" == "on" ]]; then
-  echo " [$label]"
+  echo "   $label"
 else
-  echo " [${icon_mute}]"
+  echo "   ${icon_mute}"
 fi

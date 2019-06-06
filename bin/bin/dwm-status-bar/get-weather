@@ -3,4 +3,4 @@
 # get weather data
 . $HOME/bin/weather/weather
 
-echo " [${icon} ${temp}${icon_celsius}]"
+echo "   ${icon} ${temp}${icon_celsius}"
