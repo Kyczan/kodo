@@ -34,7 +34,7 @@ stow --target=$HOME x
 Also it is worth to install these apps:
 
 ```sh
-sudo pacman -S --needed --noconfirm curl gvim rofi feh pulseaudio playerctl compton acpi scrot numlockx exa sysstat dunst youtube-dl nodejs xclip make makepkg xss-lock libnotify pacman-contrib alsa-utils wget
+sudo pacman -S --needed --noconfirm curl gvim rofi feh pulseaudio playerctl compton acpi scrot numlockx exa sysstat dunst youtube-dl nodejs xclip make makepkg xss-lock libnotify pacman-contrib alsa-utils wget telegram-desktop
 ```
 
 This project should be used alongside with my [fork of dwm](https://github.com/Kyczan/dwm) and [fork of st terminal](https://github.com/Kyczan/st)
@@ -60,7 +60,7 @@ rm -rf yay
 Then install from AUR:
 
 ```sh
-yay -S i3lock-color-git system-san-francisco-font-git ttf-ms-fonts vscodium-bin google-chrome vivaldi vivaldi-ffmpeg-codecs 
+yay -S i3lock-color-git system-san-francisco-font-git ttf-ms-fonts vscodium-bin google-chrome vivaldi vivaldi-ffmpeg-codecs spotify
 ```
 
 And manually install [icons-in-terminal](https://github.com/sebastiencs/icons-in-terminal)
