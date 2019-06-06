@@ -10,7 +10,7 @@ numlockx on
 setxkbmap -layout pl -option caps:escape 
 
 # set wallpaper
-feh --bg-scale ~/Pictures/wallpaper.png
+feh --bg-scale ~/pictures/wallpaper.png
 
 # run notification app
 dunst -config ~/.config/dunst/dunstrc &
@@ -19,7 +19,7 @@ dunst -config ~/.config/dunst/dunstrc &
 compton -f &
 
 # lock screen on suspend
-#xss-lock -- lockme &
+xss-lock -- lockme &
 
 # kill status-bar and restart it
 restart-dwm-status-bar

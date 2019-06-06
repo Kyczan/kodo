@@ -4,6 +4,6 @@
 . $HOME/.local/share/icons-in-terminal/icons_bash.sh
 icon_updates=`echo -e $fa_arrow_circle_up`
 
-updates_count=$(xbps-install -Sun | wc -l)
+updates_count=$(/usr/bin/checkupdates | wc -l)
 echo $([ $updates_count -gt 0 ] && echo " [$icon_updates $updates_count]" || echo "")
 

@@ -27,20 +27,20 @@ function gacmp () {
   gs
 }
 
-# xbps
-alias xi="sudo -A xbps-install -S"
-alias xu="sudo -A xbps-install -Su"
-alias xq="xbps-query -Rs"
-alias xr="sudo -A xbps-remove -R"
+# pacman
+alias pi="sudo -A pacman -S"
+alias pq="pacman -Ss"
+alias pd="sudo -A pacman -Rs"
+alias yi="yay -S"
 
 # ls
 alias l="exa -la"
 
 # cd
 alias clr="clear"
-alias cdp="cd $HOME/Projects/ && l"
-alias cdk="cd $HOME/Projects/kodo"
-alias cdd="cd $HOME/Projects/dwm"
+alias cdp="cd $HOME/projects/ && l"
+alias cdk="cd $HOME/projects/kodo"
+alias cdd="cd $HOME/projects/dwm"
 
 function cl () {
   cd "$@" && l
@@ -48,5 +48,3 @@ function cl () {
 
 # others
 alias v="vim"
-alias p="pacman"
-alias y="yay"

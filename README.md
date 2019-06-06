@@ -10,9 +10,18 @@ This repo contains my dotfiles and scripts that can easily set up a new mashine.
 
 Clone repo.
 
-Be sure to install `stow`. More information about program can be found [here](https://www.gnu.org/software/stow/). Also see [this article](http://brandon.invergo.net/news/2012-05-26-using-gnu-stow-to-manage-your-dotfiles.html) to understand how to use `stow` to manage dotfiles.
 
-Then execute commands from `kodo` directory.
+`$KODO` dir is folder where KODO repo is cloned to (e.g. `$HOME/projects/kodo`) 
+
+Be sure to install `stow` (all install commands are prepared for Arch Linux).
+
+```sh
+sudo pacman -S stow
+```
+
+More information about program can be found [here](https://www.gnu.org/software/stow/). Also see [this article](http://brandon.invergo.net/news/2012-05-26-using-gnu-stow-to-manage-your-dotfiles.html) to understand how to use `stow` to manage dotfiles.
+
+Be sure to remove files to be stowed from `$HOME` dir before use `stow` (e.g. delete/backup `.bash*`, `.xinitrc` files). Then execute commands from `$KODO` directory.
 
 ```sh
 stow --target=$HOME bash
@@ -22,9 +31,39 @@ stow --target=$HOME vim
 stow --target=$HOME x
 ```
 
-This project should be used alonside with my [fork of dwm](https://github.com/Kyczan/dwm) and [fork of st terminal](https://github.com/Kyczan/st)
+Also it is worth to install these apps:
 
-Also you can use `install.sh` script located in root of this directory. It installs some programs needed by KODO. But use it with care.
+```sh
+sudo pacman -S --needed --noconfirm curl gvim rofi feh pulseaudio playerctl compton acpi scrot numlockx exa sysstat dunst youtube-dl nodejs xclip make makepkg xss-lock libnotify pacman-contrib alsa-utils wget
+```
+
+This project should be used alongside with my [fork of dwm](https://github.com/Kyczan/dwm) and [fork of st terminal](https://github.com/Kyczan/st)
+
+Next create dirs for scrots and wallpaper:
+
+```sh
+mkdir -p $HOME/pictures/screenshots
+cp $KODO/scrots/wallpapers/wallpaper.png $HOME/pictures/
+```
+
+Be sure to install AUR helper (e.g. `yay`)
+
+```sh
+cd $HOME
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+cd ..
+rm -rf yay
+```
+
+Then install from AUR:
+
+```sh
+yay -S i3lock-color-git system-san-francisco-font-git ttf-ms-fonts vscodium-bin google-chrome vivaldi vivaldi-ffmpeg-codecs 
+```
+
+And manually install [icons-in-terminal](https://github.com/sebastiencs/icons-in-terminal)
 
 ## Content
 
