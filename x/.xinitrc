@@ -10,10 +10,10 @@ numlockx on
 setxkbmap -layout pl -option caps:escape 
 
 # set wallpaper
-feh --bg-scale ~/pictures/wallpaper.png
+feh --bg-scale $HOME/pictures/wallpaper.png &
 
 # run notification app
-dunst -config ~/.config/dunst/dunstrc &
+dunst -config $HOME/.config/dunst/dunstrc &
 
 # for transitions
 compton -f &
