@@ -1,12 +1,18 @@
 #!/bin/bash
 
+# icons from icons-in-terminal
+. $HOME/.local/share/icons-in-terminal/icons_bash.sh
+# glyph_div=$(echo -e $linea_arrows_left_double_32)
+glyph_div=$(echo -e $linea_arrows_down_double)
+
 # load scripts
 scripts=$HOME/bin/dwm-status-bar
 get_temperature=$scripts/get-temperature
 get_battery=$scripts/get-battery
 get_volume=$scripts/get-volume
 get_weather=$scripts/get-weather
-get_date_time=$scripts/get-date-time
+get_date=$scripts/get-date
+get_time=$scripts/get-time
 get_updates=$scripts/get-updates
 
 # initialize counters
@@ -14,15 +20,19 @@ COUNTER1=0
 COUNTER2=0
 COUNTER3=0
 
+div=" $glyph_div "
+
 function set_bar() {
-	xsetroot -name "$TEMP$BAT$VOL$WEATHER$DATE$UPDATES"
+	[ "$UPDATES" != "" ] && sufix=$div$UPDATES || sufix=""
+	xsetroot -name "$TEMP$div$BAT$div$VOL$div$WEATHER$div$DATE$div$TIME$sufix"
 }
 
 TEMP=$($get_temperature)
 BAT=$($get_battery)
 VOL=$($get_volume)
 WEATHER=$($get_weather)
-DATE=$($get_date_time)
+DATE=$($get_date)
+TIME=$($get_time)
 UPDATES=$($get_updates)
 
 set_bar
@@ -51,7 +61,8 @@ do
 	
 	# update every 1s
 	VOL=$($get_volume)
-	DATE=$($get_date_time)
+	DATE=$($get_date)
+	TIME=$($get_time)
 	
     set_bar
 

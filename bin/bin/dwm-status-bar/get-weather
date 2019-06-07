@@ -3,4 +3,6 @@
 # get weather data
 . $HOME/bin/weather/weather
 
-echo "   ${icon} ${temp}${icon_celsius}"
+icon_weather=$(set-status-color $icon)
+
+echo "${icon_weather} ${temp}${icon_celsius}"

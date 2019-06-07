@@ -2,8 +2,8 @@
 
 # icons from icons-in-terminal
 . $HOME/.local/share/icons-in-terminal/icons_bash.sh
-glyph_power=`echo -e $fa_bolt`
-glyph_plug=`echo -e $oct_plug`
+glyph_power=$(set-status-color $(echo -e $fa_bolt))
+glyph_plug=$(set-status-color $(echo -e $oct_plug))
 
 battery_info=$(acpi -b | grep "Battery 0")
 battery_state=$(echo "${battery_info}" | grep -wo "Full\|Charging\|Discharging")
@@ -32,7 +32,7 @@ if [[ "${battery_state}" = "Charging" || "${battery_state}" = "Full" ]]; then
 		fi
 	fi
 
-	echo "   ${label} $glyph_plug"
+	echo "${label} $glyph_plug"
 fi
 
 if [[ "${battery_state}" = "Discharging" ]]; then
@@ -41,7 +41,7 @@ if [[ "${battery_state}" = "Discharging" ]]; then
 		rm $cache_full
 	fi
 
-	echo "   ${label}"
+	echo "${label}"
 
   if [[ "${battery_power}" -lt "30" ]]; then 
 		

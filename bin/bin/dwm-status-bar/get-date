@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# icons from icons-in-terminal
+. $HOME/.local/share/icons-in-terminal/icons_bash.sh
+icon_date=$(set-status-color $(echo -e $fa_calendar_o))
+
+echo "$icon_date $(date '+%Y-%m-%d(%a)')"

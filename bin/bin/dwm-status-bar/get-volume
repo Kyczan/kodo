@@ -2,8 +2,8 @@
 
 # icons from icons-in-terminal
 . $HOME/.local/share/icons-in-terminal/icons_bash.sh
-icon_sound=`echo -e $md_volume_up`
-icon_mute=`echo -e $oct_mute`
+icon_sound=$(set-status-color $(echo -e $md_volume_up))
+icon_mute=$(set-status-color $(echo -e $oct_mute))
 
 statusLine=$(amixer -c 1 get Master | tail -n 1)
 status=$(echo "${statusLine}" | grep -wo "on")
@@ -11,7 +11,7 @@ volume=$(echo "${statusLine}" | awk -F ' ' '{print $4}' | tr -d '[]%')
 label="${icon_sound} ${volume}%"
 
 if [[ "${status}" == "on" ]]; then
-  echo "   $label"
+  echo "$label"
 else
-  echo "   ${icon_mute}"
+  echo "${icon_mute}"
 fi
