@@ -2,8 +2,8 @@
 
 # icons from icons-in-terminal
 . $HOME/.local/share/icons-in-terminal/icons_bash.sh
-# glyph_div=$(echo -e $linea_arrows_left_double_32)
-glyph_div=$(echo -e $linea_arrows_down_double)
+glyph_div=$(echo -e $linea_arrows_left_double_32)
+# glyph_div=$(echo -e $linea_arrows_down_double)
 
 # load scripts
 scripts=$HOME/bin/dwm-status-bar
