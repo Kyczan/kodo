@@ -63,7 +63,10 @@ Then install from AUR:
 yay -S i3lock-color-git system-san-francisco-font-git ttf-ms-fonts vscodium-bin google-chrome vivaldi vivaldi-ffmpeg-codecs spotify
 ```
 
-And manually install [icons-in-terminal](https://github.com/sebastiencs/icons-in-terminal)
+And install manually:
+
+- [icons-in-terminal](https://github.com/sebastiencs/icons-in-terminal) - for nice icons
+- [teiler](https://carnager.github.io/teiler/) - for making screenshots
 
 ## Content
 
