@@ -2,6 +2,9 @@
 
 KOwal's DOtfiles
 
+![desktop](./scrots/desktop.png)
+![terminals](./scrots/terminals.png)
+
 ## Purpose
 
 This repo contains my dotfiles and scripts that can easily set up a new mashine. Also this is backup of my desktop settings in case of any errors on my computer.
@@ -85,6 +88,8 @@ And install manually:
 Contains bunch of scripts available across the terminal. Worth to be mentioned:
 
 - `set-dwm-status-bar` - it is initialized in `.xinitrc` when system starts, and in the loop it prints dwm status bar.
+
+![statusbar](./scrots/statusbar.png)
 
 ### dunst
 
