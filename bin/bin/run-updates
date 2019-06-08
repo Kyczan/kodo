@@ -2,15 +2,8 @@
 
 ICON=$HOME/.config/dunst/icons/software-update-available.png
 
-vivaldi_count=`/usr/bin/checkupdates | grep vivaldi | wc -l`
 update="yay"
 notifysend="notify-send 'System update' 'Done!' -i $ICON"
 msg="echo 'Done - Press enter to exit'; read"
 
-if [[ $vivaldi_count -gt 0 ]]; then
-  vivaldi_update="vivaldi-patcher &&"
-else
-  vivaldi_update=""
-fi
-
-st -e sh -c "$update && $vivaldi_update $notifysend && $msg"
+st -e sh -c "$update && $notifysend && $msg"
