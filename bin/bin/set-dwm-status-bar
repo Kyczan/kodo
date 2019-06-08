@@ -71,5 +71,12 @@ do
 	COUNTER2=$((COUNTER2+1))
 	COUNTER3=$((COUNTER3+1))
 
+	# workaround to problem with exiting dunst
+	# run it when it is not running
+	pid=$(pgrep --uid $USER -x dunst)
+	if [[ ! $pid ]]; then
+		dunst &
+	fi
+
 	sleep 1s
 done &
