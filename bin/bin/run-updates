@@ -2,7 +2,7 @@
 
 ICON=$HOME/.config/dunst/icons/software-update-available.png
 
-update="yay"
+update="sudo -A pacman -Syu && yay"
 notifysend="notify-send 'System update' 'Done!' -i $ICON"
 msg="echo 'Done - Press enter to exit'; read"
 
