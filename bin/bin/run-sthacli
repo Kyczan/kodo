@@ -1,0 +1,5 @@
+#!/bin/bash
+
+msg="echo 'Press enter to exit'; read"
+
+st -n sthacli -g 100x17+400+200 -e sh -c "ha-cli && $msg"
