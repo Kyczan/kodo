@@ -10,7 +10,8 @@ numlockx on
 setxkbmap -layout pl -option caps:escape 
 
 # set wallpaper
-feh --bg-scale $HOME/pictures/wallpaper.png &
+hour-bg
+# feh --bg-scale $HOME/pictures/wallpaper.png &
 
 # for transitions
 compton -f &
@@ -23,4 +24,3 @@ restart-dwm-status-bar
 
 # finally run X
 exec dwm
-
