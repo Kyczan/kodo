@@ -1,0 +1,30 @@
+{
+  "name": "exodus",
+  "schedule": [
+    {
+      "hour_from": "0",
+      "hour_to": "6",
+      "wallpaper": "Exodus-night.jpeg"
+    },
+    {
+      "hour_from": "6",
+      "hour_to": "12",
+      "wallpaper": "Exodus-morning.jpeg"
+    },
+    {
+      "hour_from": "12",
+      "hour_to": "17",
+      "wallpaper": "Exodus-afternoon.jpeg"
+    },
+    {
+      "hour_from": "17",
+      "hour_to": "22",
+      "wallpaper": "Exodus-evening.jpeg"
+    },
+    {
+      "hour_from": "22",
+      "hour_to": "24",
+      "wallpaper": "Exodus-night.jpeg"
+    }
+  ]
+}

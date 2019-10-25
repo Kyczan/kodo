@@ -1,0 +1,70 @@
+{
+  "name": "oh-deer",
+  "schedule": [
+    {
+      "hour_from": "0",
+      "hour_to": "4",
+      "wallpaper": "0.jpg"
+    },
+    {
+      "hour_from": "4",
+      "hour_to": "5",
+      "wallpaper": "1.jpg"
+    },
+    {
+      "hour_from": "5",
+      "hour_to": "6",
+      "wallpaper": "2.jpg"
+    },
+    {
+      "hour_from": "6",
+      "hour_to": "7",
+      "wallpaper": "3.jpg"
+    },
+    {
+      "hour_from": "7",
+      "hour_to": "8",
+      "wallpaper": "4.jpg"
+    },
+    {
+      "hour_from": "8",
+      "hour_to": "9",
+      "wallpaper": "5.jpg"
+    },
+    {
+      "hour_from": "9",
+      "hour_to": "12",
+      "wallpaper": "6.jpg"
+    },
+    {
+      "hour_from": "12",
+      "hour_to": "15",
+      "wallpaper": "7.jpg"
+    },
+    {
+      "hour_from": "15",
+      "hour_to": "17",
+      "wallpaper": "8.jpg"
+    },
+    {
+      "hour_from": "17",
+      "hour_to": "19",
+      "wallpaper": "9.jpg"
+    },
+    {
+      "hour_from": "19",
+      "hour_to": "21",
+      "wallpaper": "10.jpg"
+    },
+    {
+      "hour_from": "21",
+      "hour_to": "22",
+      "wallpaper": "11.jpg"
+    },
+    {
+      "hour_from": "22",
+      "hour_to": "24",
+      "wallpaper": "0.jpg"
+    }
+  ]
+}

@@ -10,7 +10,8 @@ numlockx on
 setxkbmap -layout pl -option caps:escape 
 
 # set wallpaper
-hour-bg
+rm $HOME/.fehbg
+hour-bg &
 # feh --bg-scale $HOME/pictures/wallpaper.png &
 
 # for transitions

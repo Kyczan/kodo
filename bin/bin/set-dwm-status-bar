@@ -44,6 +44,7 @@ do
 	if [[ "${COUNTER1}" -eq 300 ]]; then
 		COUNTER1=0
 		WEATHER=$($get_weather)
+		hour-bg
 	fi;
 
 	# update only every 1m
