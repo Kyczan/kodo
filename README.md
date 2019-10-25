@@ -13,8 +13,7 @@ This repo contains my dotfiles and scripts that can easily set up a new mashine.
 
 Clone repo.
 
-
-`$KODO` dir is folder where KODO repo is cloned to (e.g. `$HOME/projects/kodo`) 
+`$KODO` dir is folder where KODO repo is cloned to (e.g. `$HOME/projects/kodo`)
 
 Be sure to install `stow` (all install commands are prepared for Arch Linux).
 
@@ -95,6 +94,10 @@ Contains bunch of scripts available across the terminal. Worth to be mentioned:
 ### dunst
 
 Contains config files for notification app
+
+### hour-bg
+
+Config and themes for [hour-bg](https://github.com/Kyczan/hour-bg) (app for change wallpapers dependent on the time of the day)
 
 ### vim
 
