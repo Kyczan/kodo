@@ -37,3 +37,4 @@ i3lock \
 --datestr="%A %Y-%m-%d" \
 --veriftext="veryfing" \
 --wrongtext="Wrong"   \
+-n; hour-bg # runs after unlock
