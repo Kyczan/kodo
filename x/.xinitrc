@@ -20,8 +20,13 @@ compton -f &
 # lock screen on suspend
 xss-lock -- lockme &
 
+# run notification handler
+dunst &
+
 # kill status-bar and restart it
-restart-dwm-status-bar
+# restart-dwm-status-bar
 
 # finally run X
-exec dwm
+# exec dwm
+exec bspwm
+

@@ -1,0 +1,33 @@
+#! /bin/sh
+
+# run key events listener
+sxhkd &
+# run polybar
+$HOME/.config/polybar/launch.sh
+# set normal cursor
+xsetroot -cursor_name left_ptr
+
+# define desktops
+bspc monitor -d I II III IV V VI VII VIII IX X
+
+# set default layouts on certain desktops
+bspc desktop I -l monocle
+bspc desktop IV -l monocle
+
+bspc config border_width          1
+bspc config window_gap            10
+bspc config normal_border_color   "#282A36"
+bspc config active_border_color   "#FF79C6"
+bspc config focused_border_color  "#FF79C6"
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+bspc config single_monocle       true
+
+# rules to swallow some programs
+bspc rule -a Vivaldi-stable desktop='^1'
+bspc rule -a VSCodium desktop='^3'
+bspc rule -a Google-chrome:crx_haiffjcadagjlijoggckpgfnoeiflnem desktop='^4'
+bspc rule -a TelegramDesktop desktop='^5'
+bspc rule -a Spotify desktop='^6'

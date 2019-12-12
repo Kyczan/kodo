@@ -28,8 +28,11 @@ Be sure to remove files to be stowed from `$HOME` dir before use `stow` (e.g. de
 ```sh
 stow --target=$HOME bash
 stow --target=$HOME bin
+stow --target=$HOME bspwm
 stow --target=$HOME dunst
 stow --target=$HOME hour-bg
+stow --target=$HOME polybar
+stow --target=$HOME sxhkd
 stow --target=$HOME vim
 stow --target=$HOME x
 ```

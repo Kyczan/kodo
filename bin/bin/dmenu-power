@@ -1,6 +1,6 @@
 #!/bin/bash
 
-options_arr=("lock" "restart dwm statusbar" "suspend" "reboot" "shutdown")
+options_arr=("lock" "restart bspwm" "suspend" "reboot" "shutdown")
 joined=$(IFS=$'\n' ; echo "${options_arr[*]}")
 echo $joined
 opts=$(echo -e "$joined" | rofi -dmenu -p "Power manager")
@@ -8,7 +8,7 @@ opts=$(echo -e "$joined" | rofi -dmenu -p "Power manager")
 if [[ "${opts}" == ${options_arr[0]} ]]; then
   lockme
 elif [[ "${opts}" == ${options_arr[1]} ]]; then
-  restart-dwm-status-bar
+  bspc wm -r
 elif [[ "${opts}" == ${options_arr[2]} ]]; then
   lockme & systemctl suspend
 elif [[ "${opts}" == ${options_arr[3]} ]]; then
