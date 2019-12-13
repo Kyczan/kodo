@@ -1,0 +1,6 @@
+# Obtained from https://developer.airly.eu
+
+# Secret API key
+AIRLY_API_KEY="xxx"
+# Installation id 
+AIRLY_INSTALLATION_ID="2709"

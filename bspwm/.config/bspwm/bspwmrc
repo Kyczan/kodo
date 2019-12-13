@@ -8,7 +8,7 @@ $HOME/.config/polybar/launch.sh
 xsetroot -cursor_name left_ptr
 
 # define desktops
-bspc monitor -d I II III IV V VI VII VIII IX X
+bspc monitor -d I II III IV V VI
 
 # set default layouts on certain desktops
 bspc desktop I -l monocle
