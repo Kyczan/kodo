@@ -163,6 +163,7 @@ label-muted = muted
 type = custom/script
 exec = ~/.config/polybar/scripts/weather.sh
 interval = 300
+click-left = dunst-weather &
 
 [module/airly]
 type = custom/script
