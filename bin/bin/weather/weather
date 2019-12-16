@@ -28,41 +28,44 @@ icon_base=$HOME/.config/dunst/icons/weather-
 weather_url="http://api.openweathermap.org/data/2.5/weather?id=${city_id}&appid=${api_key}&units=metric"
 
 data=$(wget -qO- "${weather_url}")
-weather_main=`parse "${data}" weather[0].main`
-weather_code=`parse "${data}" weather[0].id`
-temp_float=`parse "${data}" main.temp`
-temp=`echo $temp_float | awk '{print int($1+0.5)}'`
-weather_icon=`parse "${data}" weather[0].icon`
 
-case ${weather_code} in
-  6*) # snow
-    icon=${icon_snow} 
-    color_icon=${icon_base}snow.png ;; 
-  3*|5*) # rain, drizzle
-    icon=${icon_rain} 
-    color_icon=${icon_base}rain.png ;; 
-  800*) # clear
-    case ${weather_icon} in
-      01n) # night
-        icon=${icon_night} 
-        color_icon=${icon_base}moon.png ;; 
-      *) # day
-        icon=${icon_sun} 
-        color_icon=${icon_base}sun.png ;; 
-    esac ;; 
-  80*) # cloudy
-    icon=${icon_cloud} 
-    color_icon=${icon_base}cloud.png ;; 
-  7*) # fog
-    icon=${icon_fog} 
-    color_icon=${icon_base}cloud.png ;; 
-  2*) # storm
-    icon=${icon_storm} 
-    color_icon=${icon_base}rain.png ;; 
-  9*) # extreme
-    icon=${weather_main} 
-    color_icon=${icon_base}alert.png ;; 
-  *) # probably no internet
-    icon="?" 
-    color_icon=${icon_base}alert.png 
-esac
+if [ -n "$data" ]; then
+  weather_main=`parse "${data}" weather[0].main`
+  weather_code=`parse "${data}" weather[0].id`
+  temp_float=`parse "${data}" main.temp`
+  temp=`echo $temp_float | awk '{print int($1+0.5)}'`
+  weather_icon=`parse "${data}" weather[0].icon`
+
+  case ${weather_code} in
+    6*) # snow
+      icon=${icon_snow} 
+      color_icon=${icon_base}snow.png ;; 
+    3*|5*) # rain, drizzle
+      icon=${icon_rain} 
+      color_icon=${icon_base}rain.png ;; 
+    800*) # clear
+      case ${weather_icon} in
+        01n) # night
+          icon=${icon_night} 
+          color_icon=${icon_base}moon.png ;; 
+        *) # day
+          icon=${icon_sun} 
+          color_icon=${icon_base}sun.png ;; 
+      esac ;; 
+    80*) # cloudy
+      icon=${icon_cloud} 
+      color_icon=${icon_base}cloud.png ;; 
+    7*) # fog
+      icon=${icon_fog} 
+      color_icon=${icon_base}cloud.png ;; 
+    2*) # storm
+      icon=${icon_storm} 
+      color_icon=${icon_base}rain.png ;; 
+    9*) # extreme
+      icon=${weather_main} 
+      color_icon=${icon_base}alert.png ;; 
+    *) # probably no internet
+      icon="?" 
+      color_icon=${icon_base}alert.png 
+  esac
+fi

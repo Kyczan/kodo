@@ -17,13 +17,18 @@ installation_id="${AIRLY_INSTALLATION_ID}"
 airly_url="https://airapi.airly.eu/v2/measurements/installation?indexType=AIRLY_CAQI&installationId=${installation_id}&apikey=${api_key}"
 
 data=$(wget -qO- "${airly_url}")
-caqi_index_float=`parse "${data}" current.indexes[0].value`
-caqi_index=${caqi_index_float%.*}
 
-color="#6272a4"
+if [ -n "$data" ]; then
+  caqi_index_float=`parse "${data}" current.indexes[0].value`
+  caqi_index=${caqi_index_float%.*}
 
-if [ "$caqi_index" -gt 50 ]; then
-    color="#bd2c40"
+  color="#6272a4"
+
+  if [ "$caqi_index" -gt 50 ]; then
+      color="#bd2c40"
+  fi
+
+  echo "%{F${color}}${icon_leaf}%{F-} ${caqi_index}"
+else
+  echo ""
 fi
-
-echo "%{F${color}}${icon_leaf}%{F-} ${caqi_index}"
