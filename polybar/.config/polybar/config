@@ -37,6 +37,8 @@ oct_flame = " "
 fa_bolt = " "
 oct_plug = " "
 fa_arrow_circle_up = " "
+oct_light_bulb = ""
+linux_archlinux = ""
 
 [settings]
 screenchange-reload = true
@@ -70,7 +72,7 @@ font-1 = icons\-in\-terminal:style=in-terminal:size=9
 
 modules-left = bspwm
 modules-center = xwindow
-modules-right = temperature battery volume weather airly date time updates
+modules-right = programs lights temperature battery volume weather airly date time updates
 
 separator = ${icons.linea_arrows_left_double_32}
 
@@ -113,6 +115,18 @@ label-empty-margin = 1
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:30:...%
+
+[module/programs]
+type = custom/text
+content = ${icons.linux_archlinux}
+click-left = rofi -modi drun -show drun &
+content-foreground = ${colors.icons}
+
+[module/lights]
+type = custom/text
+content = ${icons.oct_light_bulb}
+click-left = ha-cli-dmenu &
+content-foreground = ${colors.icons}
 
 [module/temperature]
 type = internal/temperature
